@@ -12,9 +12,9 @@ const { OrderModels } = require("./model/OrderModels");
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-mongoose.connect(
-"mongodb://localhost:27017/zerodha"
-)
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 .then(() => console.log("Connected"))
 .catch(err => console.log(err));
 
